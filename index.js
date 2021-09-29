@@ -19,8 +19,18 @@ app.get("/teste", function (req, res){
     res.render("../views/ejs/pagina2", { titulo: "pagina modificada" })
 });
 
-app.get("/teste2", function (req, res){
-    res.render("../views/ejs/pagina2", { titulo: "pagina modificada" })
+app.get("/formulario", function (req, res){
+    res.render("formulario");
+});
+
+app.get("/recebeform", function (req, res){
+    const { input_nome, email, senha } = req.body;
+    res.send({ nome: nome, email: email, senha: senha});
+});
+
+app.post("/recebeform", function (req, res){
+    const { nome, email, senha } = req.body;
+    res.send({ nome: nome, email: email, senha: senha});
 });
 
 // app.post

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/estilo.css">
+    <title>FORMULARIO</title>
+</head>
+<body>
+    <h1>Formulario de teste HTTP</h1>
+    
+    <form action="/recebeform" method="POST">
+        <div>
+            <label for="nome">Nome: </label>
+            <input type="text" name="nome" id="input_nome" placeholder="digite seu nome aqui" required>
+        </div>
+
+        <div>
+            <label for="email">Email: </label>
+            <input type="email" name="email" id="input_email" placeholder="digite seu email aqui" required>
+        </div>
+
+        <div>
+            <label for="senha">Senha: </label>
+            <input type="password" name="senha" id="input_senha" placeholder="digite sua senha aqui" required>
+        </div>
+
+        <button type="submit">Adicionar usuario</button>
+    </form>
+</body>
+</html>
