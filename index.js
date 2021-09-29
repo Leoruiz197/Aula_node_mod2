@@ -19,6 +19,10 @@ app.get("/teste", function (req, res){
     res.render("../views/ejs/pagina2", { titulo: "pagina modificada" })
 });
 
+app.get("/teste2", function (req, res){
+    res.render("../views/ejs/pagina2", { titulo: "pagina modificada" })
+});
+
 // app.post
 // app.put
 // app.delete
