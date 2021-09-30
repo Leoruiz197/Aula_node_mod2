@@ -10,7 +10,9 @@
 <body>
     <h1>Formulario de teste HTTP</h1>
     
-    <form action="/recebeform" method="POST">
+    <form action="/recebeform" method="POST"> 
+        <!-- action =  para onde vai esse forms -->
+        <!-- method = aos metodos HTTP disponiveis GET / POST / PUT / DELETE -->
         <div>
             <label for="nome">Nome: </label>
             <input type="text" name="nome" id="input_nome" placeholder="digite seu nome aqui" required>
@@ -26,7 +28,8 @@
             <input type="password" name="senha" id="input_senha" placeholder="digite sua senha aqui" required>
         </div>
 
-        <button type="submit">Adicionar usuario</button>
+        <button type="submit">Adicionar usuario</button> 
+        <!-- botao precisa ser do tipo submit -->
     </form>
 </body>
 </html>

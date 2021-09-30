@@ -7,6 +7,8 @@ app.set("view engine", "ejs");  //set engine para trabalhar com o EJS
 
 app.use(express.static(path.join(__dirname, "public")));  //set public como pasta raiz de arquivos estaticos como imgs e css
 
+app.use(express.urlencoded({ extended: true }));
+
 app.get("/", function (req, res){ // .get para tratar as requisicoes tipo get e a rota solicitada
     res.render("index", { titulo: "ola bluemer 123" });  // render para renderizar o arquivo EJS dentro da views por padrao
 });
@@ -24,13 +26,19 @@ app.get("/formulario", function (req, res){
 });
 
 app.get("/recebeform", function (req, res){
-    const { input_nome, email, senha } = req.body;
-    res.send({ nome: nome, email: email, senha: senha});
+    const  { nome, email, senha } = req.query; // recuperando as infos via HTTP GET
+    res.send({ nome: nome, email: email, senha: senha}); // devolvendo via JSON
 });
 
 app.post("/recebeform", function (req, res){
-    const { nome, email, senha } = req.body;
-    res.send({ nome: nome, email: email, senha: senha});
+    const { nome, email, senha } = req.body; // recuperando via HTTP POST
+    const site = { titulo: "pagina de resultado", nome: nome, email: email, senha: senha, message: `Usuario ${nome} cadastrado com sucesso`}; // construindo JSON
+
+    setTimeout(() => {
+        site.message = ""
+    }, 1000);
+
+    res.render("resultado", site); // renderizando e usando o json para exibir infos na tela
 });
 
 // app.post
