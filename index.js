@@ -1,7 +1,7 @@
 const express = require("express");  //importando o express
 const path = require("path");  // importando o path
 const app = express();  // definindo meu app como um express
-const port = 3000;  //set porta na 3000
+const port = process.env.PORT || 3000; //set porta na variavel de ambiente ou na 3000
 
 app.set("view engine", "ejs");  //set engine para trabalhar com o EJS
 
