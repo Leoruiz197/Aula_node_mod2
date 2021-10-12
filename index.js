@@ -30,10 +30,19 @@ app.get("/recebeform", function (req, res){
     res.send({ nome: nome, email: email, senha: senha}); // devolvendo via JSON
 });
 
-app.post("/recebeform", function (req, res){
+let listnome = ["leo"];
+app.post("/recebeform/:indice", function (req, res){
+    req.params.indice
     const { nome, email, senha } = req.body; // recuperando via HTTP POST
     const site = { titulo: "pagina de resultado", nome: nome, email: email, senha: senha, message: `Usuario ${nome} cadastrado com sucesso`}; // construindo JSON
-
+    listnome.forEach(element => {
+        if(nome == element){
+            res.render("resultado", messageErro);
+        }else{
+            res.render("resultado", pokemon);
+        }
+    });
+    
     setTimeout(() => {
         site.message = ""
     }, 1000);
